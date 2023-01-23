@@ -6,6 +6,7 @@
                 <tr>
                     <th scope="col" width="50">#</th>
                     <th scope="col">name</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>

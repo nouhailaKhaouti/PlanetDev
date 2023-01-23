@@ -7,6 +7,7 @@
                     <th scope="col" width="50">#</th>
                     <th scope="col">title</th>
                     <th scope="col">Category</th>
+                    <th scope="col">CeatedOn</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
