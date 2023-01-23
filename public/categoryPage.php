@@ -1,4 +1,5 @@
 <?php
+include_once("../article/controller.php");
 include_once("../category/controller.php");
 ?>
 <!DOCTYPE html>
@@ -48,16 +49,36 @@ include_once("../category/controller.php");
                         </li>
                     </ul>
                 </div>
-            </nav>                                                                                              
+            </nav>
+            <div class="activity  mt-5 d-flex justify-content-between mb-3">
+                    <div class="title">
+                        <i class="uil uil-document-layout-left  fs-3"></i>
+                        <span class="text fs-5 fw-bold ">My Articles</span>
+                    </div>
+                    <div class="input-group ms-5 w-25">
+
+                        <input type="search" class="form-control rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="recherche" onkeyup="filtrer()" />
+                        <button type="button" class="btn btn-secondary  ms-2 rounded  border-0" >search</button>
+                    </div>
+                    <div id="add_category">
+        <button class="btn button" type="submit" onclick="createCategory()"> Add Category</button>
+            </div>
+                    <div class="ms-auto">
+                        <button class="btn btn-secondary text-light mycolor rounded-pill"><i class="uil uil-plus text-white"></i> <a class="text-decoration-none text-white" href="article.php">&emsp; Create an Article</a></button>
+                    </div>
+                </div>
 
             <div class="container-fluid px-4">
                 <?php
-                include_once("../article/create.php");
-
+                include_once("../category/view.php");
                 ?>
             </div>
         </div>
     </div>
+    <?php
+    include("../article/Modal.php");
+    include("../article/ModalView.php");
+    ?>
     <!-- /#page-content-wrapper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
@@ -69,7 +90,7 @@ include_once("../category/controller.php");
             el.classList.toggle("toggled");
         };
     </script>
-    <script src="../asset/script/dynamique.js"></script>
+    <script src="../asset/script/category.js"></script>
 </body>
 
 </html>

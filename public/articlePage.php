@@ -1,4 +1,5 @@
 <?php
+include_once("../article/controller.php");
 include_once("../category/controller.php");
 ?>
 <!DOCTYPE html>
@@ -48,16 +49,20 @@ include_once("../category/controller.php");
                         </li>
                     </ul>
                 </div>
-            </nav>                                                                                              
+            </nav>
 
             <div class="container-fluid px-4">
                 <?php
-                include_once("../article/create.php");
+                include_once("../article/view.php");
 
                 ?>
             </div>
         </div>
     </div>
+    <?php
+    include("../article/Modal.php");
+    include("../article/ModalView.php");
+    ?>
     <!-- /#page-content-wrapper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
@@ -69,7 +74,7 @@ include_once("../category/controller.php");
             el.classList.toggle("toggled");
         };
     </script>
-    <script src="../asset/script/dynamique.js"></script>
+    <script src="../asset/script/article.js"></script>
 </body>
 
 </html>
