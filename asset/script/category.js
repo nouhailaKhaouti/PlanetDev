@@ -17,7 +17,7 @@ function createCategory() {
   ).innerHTML = ``;
   // Afficher le boutton save
   btn2.innerHTML = `<button type="button" class="btn bug shadow-sm" data-dismiss="modal">Close</button>
-  <button type="submit" name="save" id="hide" class="btn high shadow-sm " >Save changes</button>`;
+  <button type="submit" name="save_Category" id="hide" class="btn high shadow-sm " >Save changes</button>`;
   // Ouvrir modal form
   $("#ModalCategory").modal("show");
 }
@@ -43,7 +43,7 @@ function editCategory(id, label) {
   // // Définir l’index en entrée cachée pour l’utiliser en Update et Delete
   // Definir FORM INPUTS
   btn2.innerHTML = `<button type="button" class="btn bug shadow-sm" data-dismiss="modal">Close</button>
-  <button type="submit" name="update" onClick="updateCategory()" id="update" class="btn high shadow-sm " >Update</button>`;
+  <button type="submit" name="update_Category" onClick="updateCategory()" id="update" class="btn high shadow-sm " >Update</button>`;
   // Ouvrir Modal form
   $("#ModalCategory").modal("show");
 }

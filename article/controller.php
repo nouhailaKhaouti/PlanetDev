@@ -88,6 +88,13 @@ function saveArticle()
             $createdOn = date('d-m-y h:i:s');
 
             print_r($_POST);
+            // if($category==0){
+            //     $new=$_POST["categoryNew"];
+            //     $Category=new Category($new);
+            //     $Category->create();
+            //     $stmt = $bdd->query("SELECT LAST_INSERT_ID(id) from user order by LAST_INSERT_ID(id) desc limit 1;");
+            //     $category = $stmt->fetchColumn();
+            // }
             $Article = new Article($title, $content, $img_upload_path, $category, $createdOn, 1);
              $Article->create();
         }
