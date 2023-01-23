@@ -1,11 +1,18 @@
 function viewArticle(title, content, image, createdOn) {
   console.log(title + "  " + content + "  " + image);
-  document.getElementById("titleView").value = title;
-  document.getElementById("contentView").value = content;
-  document.getElementById("createdOnView").value = createdOn;
-  document.getElementById(
-    "img"
-  ).innerHTML = `<img src="${icon}" height="200" width="130">`;
+  document.getElementById("body").innerHTML=`
+    <h1>${title}</h1>
+    <h3 class="text-light">${createdOn}</h3>
+    <img src="${icon}" height="200" width="130">
+    <section>
+        ${content}
+
+    </section>
+  
+  
+  
+  `
+
   // Ouvrir Modal form
   $("#ModalViewArticle").modal("show");
 }
@@ -33,6 +40,6 @@ function editArticle(id, title, content, category, icon) {
 
 function deleteArticle(id) {
   if (confirm("Are you sure you want to Delete?")) {
-    window.location.href = "/article/controller.php?article_id=" + id;
+    window.location.href = "../article/controller.php?article_id=" + id;
   }
 }

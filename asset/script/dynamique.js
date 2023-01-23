@@ -2,7 +2,8 @@ $(document).ready(function () {
     $(".add_item_btn").click(function (e) {
       e.preventDefault();
       $("#show_item").prepend(
-        `         <div class="d-flex flex-column pe-5 bg-light append_item">
+        `        
+         <div class="d-flex flex-column mt-2 mb-2 pe-5 bg-light append_item">
         <div class="ps-5 pt-3" id="show_item">
             <label for="exampleInputEmail1" class="form-label">title</label>
             <input type="text" class="form-control" id="title" name="title[]">
@@ -26,6 +27,7 @@ $(document).ready(function () {
             <option value="3">spring</option>
             </select>
         </div>
+        </br>
         <div class="ps-5 pb-3">
             <button class="btn btn-danger remove_item_btn">Remove</button>
         </div>

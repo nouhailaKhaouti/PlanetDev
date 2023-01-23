@@ -1,6 +1,7 @@
 <div class="modal-body ">
     <form action="../article/controller.php" method="POST" id="add_form" class="d-flex flex-column justify-content-between" enctype='multipart/form-data'>
-        <div class="d-flex flex-column pe-5  bg-light " id="show_item">
+        <div id="show_item">
+        <div class="d-flex flex-column pe-5 mt-2 mb-2 bg-light " >
             <div class="ps-5 pt-3" >
                 <label for="exampleInputEmail1" class="form-label">title</label>
                 <input type="text" class="form-control" id="title" name="title[]">
@@ -24,9 +25,11 @@
                     ?>
                 </select>
             </div>
+            </br>
             <div class="ps-5 pb-3">
                 <button class="btn btn-success add_item_btn">Add More</button>
             </div>
+        </div>
         </div>
         <div ><input type="submit" class="btn btn-primary" name="save_article" value="add" id="add_btn"></div>
     </form>

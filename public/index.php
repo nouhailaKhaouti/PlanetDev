@@ -20,7 +20,7 @@ include_once("../category/controller.php");
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
         <div class="bg-white" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i class="fas fa-user-secret me-2"></i>Codersbite</div>
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i class="fas fa-user-secret me-2"></i>Planet Dev</div>
             <div class="list-group list-group-flush my-3">
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fas fa-tachometer-alt me-2"></i>Artciles</a>
@@ -93,6 +93,20 @@ include_once("../category/controller.php");
                         </div>
                     </div>
                 </div>
+                <div class="activity  mt-5 d-flex justify-content-between mb-3">
+                    <div class="title">
+                        <i class="uil uil-document-layout-left  fs-3"></i>
+                        <span class="text fs-5 fw-bold ">My Articles</span>
+                    </div>
+                    <div class="input-group ms-5 w-25">
+
+                        <input type="search" class="form-control rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="recherche" onkeyup="filtrer()" />
+                        <button type="button" class="btn btn-secondary  ms-2 rounded  border-0" >search</button>
+                    </div>
+                    <div class="ms-auto">
+                        <button class="btn btn-secondary text-light mycolor rounded-pill"><i class="uil uil-plus text-white"></i> <a class="text-decoration-none text-white" href="article.php">&emsp; Create an Article</a></button>
+                    </div>
+                </div>
                 <div class="mx-5 col-4 mt-ms-3">
                     <div id="search_w_type" class="ms-3 ms-sm-0">
                         <select class="form-select form-select-sm ms-5 cart shadow-sm" onclick="filtrerType()" name="type" id="type">
@@ -101,12 +115,8 @@ include_once("../category/controller.php");
                             ?>
                         </select>
                     </div>
-                    <button class="btn button1" onclick="search()"><i class="bi bi-search "></i> Search</button>
                     <br>
                     <br>
-                    <div id="search" class="d-none ms-3">
-                        <input class="form-control input-sm rounded-3 cart shadow-sm " type="text" placeholder="Recherche sur les titres" id="recherche" onkeyup="filtrer()">
-                    </div>
                 </div>
                 <?php
                 include_once("../article/view.php");
@@ -122,6 +132,7 @@ include_once("../category/controller.php");
     include("../category/Modal.php");
     ?>
     <!-- /#page-content-wrapper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         var el = document.getElementById("wrapper");

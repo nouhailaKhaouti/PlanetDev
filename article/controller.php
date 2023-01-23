@@ -38,9 +38,9 @@ function getAllArticles()
             <td><?= $category ?></td>
             <td><?= $createdOn ?></td>
             <td>
-                <button class="btn btn-primary btn-bg btn-md m-1 rounded " onclick="editArticle(<?= $id ?>,`<?= $title ?>`,`<?= $content ?>`,`<?= $category ?>`,`<?= $icon ?>`)"><i class="bi bi-pencil"> Edit</i></button>
-                <button class="btn btn-primary btn-bg btn-md m-1 rounded" onclick="viewArtcile(`<?= $title  ?>`,`<?= $content ?>`,`<?= $icon ?>`,<?= $createdOn ?>)"><i class="bi bi-eye"> View</i></button>
-                <button class="btn btn-primary btn-bg btn-md m-1 rounded" onclick="deleteArticle(`<?= $id ?>`)"><i class="bi bi-trash"> Remove</i></button>
+                <button class="btn btn-success btn-bg btn-md m-1 rounded " onclick="editArticle(<?= $id ?>,`<?= $title ?>`,`<?= $content ?>`,`<?= $category ?>`,`<?= $icon ?>`)"><i class="bi bi-pencil"> Edit</i></button>
+                <button class="btn btn-primary btn-bg btn-md m-1 rounded" onclick="viewArticle(`<?= $title  ?>`,`<?= $content ?>`,`<?= $icon ?>`,`<?= $createdOn ?>`)"><i class="bi bi-eye"> View</i></button>
+                <button class="btn btn-danger btn-bg btn-md m-1 rounded" onclick="deleteArticle(<?= $id ?>)"><i class="bi bi-trash"> Remove</i></button>
             </td>
         </tr>
 <?php
@@ -99,7 +99,7 @@ function saveArticle()
 function deleteArticle()
 {
     //CODE HERE
-    $id = $_GET['Article_id'];
+    $id = $_GET['article_id'];
 
     $req = Article::delete($id);
 

@@ -4,7 +4,7 @@
       <div class="modal-header text-center">
         <h4 class="modal-title" id="ModalLabel">view Article</h4>
       </div>
-      <div class="modal-body ">
+      <div class="modal-body" id="body">
 
       </div>
     </div>
