@@ -54,11 +54,14 @@ function saveCategory()
 
         $req = $Category->create();
 
-        if ($req) {
-            echo "good";
-            die();
+
+        if (!$req) {
+            $_SESSION["error"]="error accured while creating this category";
+            header("location:../public/category.php");
+            
         } else {
-            echo "error accured";
+            $_SESSION["success"]="this category has been created successfuly";
+            header("location:../public/category.php");
             die();
         }
     }
@@ -73,9 +76,12 @@ function deleteCategory()
     $req = Category::delete($id);
 
     if (!$req) {
-        echo "error";
+        $_SESSION["error"]="error accured while deleting this category";
+        header("location:../public/category.php");
+        
     } else {
-        echo "good";
+        $_SESSION["success"]="this category has been deleted successfuly";
+        header("location:../public/category.php");
         die();
     }
 }
@@ -92,10 +98,12 @@ function updateCategory()
         $req = $Category->update($id);
         print_r($req);
         if ($req) {
-            echo "good";
+            $_SESSION["success"]="this category has been updated successfuly";
+            header("location:../public/category.php");
             die();
         } else {
-            echo "error accured";
+            $_SESSION["error"]="error accured while updating this category";
+            header("location:../public/category.php");
             die();
         }
     }

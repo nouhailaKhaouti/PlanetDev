@@ -3,10 +3,15 @@
   margin: 0;
 }
 :root {
-  --main-bg-color: #674188;
-  --main-text-color: #a055cc;
-  --second-text-color: #F7EFE5;
-  --second-bg-color: #f4e3ff;
+  --main-bg-color: #1D3124;
+  --main-text-color: #E59560;
+  --second-text-color:#ffffff ;
+  --second-bg-color:#F6F4E8 ;
+  --thirth-bg-color:#e7e6dd;
+}
+
+.table-list{
+  background-color: var(--thirth-bg-color);
 }
 
 .primary-text {
@@ -29,14 +34,18 @@
   border-radius: 100%;
 }
 
+.fixed{
+ width: 300px;
+}
+
 #wrapper {
   overflow-x: hidden;
   background-image: linear-gradient(to right,
-      #e6baf3,
-      #eac2f5,
-      #e0cbf7,
-      #ebd4f8,
-      #f2ddfa);
+      #BACEC1,
+      #BACEC1,
+      #BACEC1,
+      #BACEC1,
+      #BACEC1);
 }
 
 #sidebar-wrapper {
@@ -111,7 +120,7 @@
   border-radius: 14px;
   padding: 20px;
   position: relative;
-  background-image: linear-gradient(#FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+  background-image: linear-gradient(#F6F4E8 0%, #F6F4E8 55%, #F6F4E8 100%);
 }
 
 .card .card-container {
@@ -138,7 +147,7 @@
 .card::before {
   position: absolute;
   content: '';
-  background-color: rgb(170, 169, 169);
+  background-color:#1D3124;
   height: 35px;
   width: 35px;
   top: 3rem;
@@ -157,7 +166,7 @@
   padding: 10px;
   right: -31px;
   width: 8rem;
-  background-color:rgb(170, 169, 169);
+  background-color:#1D3124;
   z-index: 12;
   border-bottom-left-radius: 20px;
   border-top-left-radius: 20px;

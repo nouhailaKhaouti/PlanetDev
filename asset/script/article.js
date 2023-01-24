@@ -15,6 +15,7 @@ function viewArticle(title, content, image, createdOn) {
 }
 
 function editArticle(id, title, content, category, icon) {
+  console.log(category);
   document.getElementById("title").value = title;
   CKEDITOR.instances.content.setData(content);
   document.getElementById("category").value = category;

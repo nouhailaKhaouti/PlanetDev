@@ -1,7 +1,5 @@
 <?php
-require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '.\gestion-hospital\Config\db.php');
-
-session_start();
+require_once("../config/db.php");
 
 class User
 {
@@ -32,16 +30,15 @@ class User
         $stmt->execute();
         $row = $stmt->fetch();
         if (!$row) {
-
-            $_SESSION['message'] = "Email Is not valid !";
+            $_SESSION['error'] = "Email Is not valid !";
         } else {
             if ($row['password'] == $password) {
-                $_SESSION['ID'] = $row['id'];
-                $_SESSION['ROLE'] = $row['role'];
-
-                header('location: index.php');
+                $_SESSION['id'] = $row['id'];
+                $_SESSION['name']=$row['username'];
+                $_SESSION['role'] = $row['role'];
+                header("location:../public/index.php");
             } else {
-                $_SESSION['message'] = "Password Wrong !";
+                $_SESSION['error'] = "Password Wrong !";
             }
         }
     }
@@ -126,5 +123,5 @@ class User
     //     $stmt->execute();
     //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
     //   } 
-    
+
 }

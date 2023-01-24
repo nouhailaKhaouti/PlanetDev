@@ -11,6 +11,7 @@ function logIn(){
     $email = $_POST['email'];
     $password = $_POST['password'];
      User::login($email,$password);
+
 }
 
 
@@ -23,6 +24,7 @@ function test_input($data)
 }
 
 // ********************************************User**********************************************
+
 function saveUser()
 {
     //CODE HERE
@@ -38,12 +40,13 @@ function saveUser()
 
         $req = $user->createUser();
 
-        if ($req) {
-            echo "great";
-            header("Location:index.php");
-            die();
+        if (!$req) {
+            $_SESSION["error"]="error accured while logIn ";
+            header("location:../public/index.php");
+            
         } else {
-            echo "error accured";
+            $_SESSION["success"]="you successfuly loged in";
+            header("location:../public/index.php");
             die();
         }
     }

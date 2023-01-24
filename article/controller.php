@@ -23,23 +23,23 @@ function getArticles()
 {
     $result = article::getAll();
     foreach ($result as $row) {
-        $id=$row["id"];
+        $id = $row["id"];
         $title = $row["title"];
         $icon = $row["icon"];
         $category = $row["label"];
         $createdOn = $row["createOn"];
-    ?>      <a href="articleView.php?id=<?= $id?>" class="text-decoration-none">
+?> <a href="articleView.php?id=<?= $id ?>" class="text-decoration-none">
             <div class="card mt-5 shadow-lg ms-3" data-label="   <?= $category ?>">
                 <div class="card-container text-white" style="background: url('../<?= $icon ?>') no-repeat; background-size:cover">
                     <br>
-                <br>
-                <br>
-                <br>
-                    <h5 ><?= $title ?></h5>
+                    <br>
+                    <br>
+                    <br>
+                    <h5><?= $title ?></h5>
                     <p><?= $createdOn ?></p>
                 </div>
             </div>
-            </a>
+        </a>
     <?php
 
     }
@@ -56,6 +56,7 @@ function getAllArticles()
         $title = $row["title"];
         $icon = $row["icon"];
         $category = $row["label"];
+        $category_id=$row["category"];
         $createdOn = $row["createOn"];
         $content = $row["content"];
     ?>
@@ -65,7 +66,7 @@ function getAllArticles()
             <td><?= $category ?></td>
             <td><?= $createdOn ?></td>
             <td>
-                <button class="btn btn-success btn-bg btn-md m-1 rounded " onclick="editArticle(<?= $id ?>,`<?= $title ?>`,`<?= $content ?>`,`<?= $category ?>`,`<?= $icon ?>`)"><i class="bi bi-pencil"> Edit</i></button>
+                <button class="btn btn-success btn-bg btn-md m-1 rounded " onclick="editArticle(<?= $id ?>,`<?= $title ?>`,`<?= $content ?>`,`<?= $category_id ?>`,`<?= $icon ?>`)"><i class="bi bi-pencil"> Edit</i></button>
                 <button class="btn btn-primary btn-bg btn-md m-1 rounded" onclick="viewArticle(`<?= $title  ?>`,`<?= $content ?>`,`<?= $icon ?>`,`<?= $createdOn ?>`)"><i class="bi bi-eye"> View</i></button>
                 <button class="btn btn-danger btn-bg btn-md m-1 rounded" onclick="deleteArticle(<?= $id ?>)"><i class="bi bi-trash"> Remove</i></button>
             </td>
@@ -113,17 +114,18 @@ function saveArticle()
             }
 
             $createdOn = date('d-m-y h:i:s');
-
             print_r($_POST);
-            // if($category==0){
-            //     $new=$_POST["categoryNew"];
-            //     $Category=new Category($new);
-            //     $Category->create();
-            //     $stmt = $bdd->query("SELECT LAST_INSERT_ID(id) from user order by LAST_INSERT_ID(id) desc limit 1;");
-            //     $category = $stmt->fetchColumn();
-            // }
             $Article = new Article($title, $content, $img_upload_path, $category, $createdOn, 1);
-            $Article->create();
+            $req = $Article->create();
+        }
+
+        if (!$req) {
+            $_SESSION["error"] = "error accured while adding this article";
+            header("location:../public/article.php");
+        } else {
+            $_SESSION["success"] = "this category has been added successfuly";
+            header("location:../public/article.php");
+            die();
         }
     }
 }
@@ -136,23 +138,24 @@ function deleteArticle()
     $id = $_GET['article_id'];
 
     $req = Article::delete($id);
-
     if (!$req) {
-        echo "error";
+
+        $_SESSION["error"] = "error accured while deleting this article";
+        header("location:../public/articlePage.php");
     } else {
-        echo "good";
+
+        $_SESSION["success"] = "this category has been deleted successfuly";
+        header("location:../public/articlePage.php");
         die();
     }
 }
 
 
 function updateArticle()
-{
-    //CODE HERE
-    //SQL INSERT   
-
-
-    if (!empty($_POST["title"]) && !empty($_POST["content"]) && !empty($_POST["category"])) {
+{  
+    echo isset($_POST["category"]);
+    if (isset($_POST["title"]) && isset($_POST["content"]) && isset($_POST["category"])) {
+        echo "hi";
         $id = $_POST['article_id'];
         $title = test_input($_POST["title"]);
         $content = test_input($_POST["content"]);
@@ -189,6 +192,14 @@ function updateArticle()
             $img_upload_path = $icon;
         }
         $Article = new Article($title, $content, $img_upload_path, $category, $createdOn, 1);
-        $Article->update($id);
+        $req = $Article->update($id);
+        if (!$req) {
+            $_SESSION["error"] = "error accured while updating this article";
+            header("location:../public/articlePage.php");
+        } else {
+            $_SESSION["success"] = "this category has been updated successfuly";
+            header("location:../public/articlePage.php");
+            die();
+        }
     }
 }
