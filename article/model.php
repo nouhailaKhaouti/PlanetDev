@@ -69,7 +69,7 @@ class Article {
 	public static function getAll() {
 		$database = new Dbconnect();
 		$bdd = $database->connect_pdo();
-		$sql="SELECT * FROM article";
+		$sql="SELECT * FROM article JOIN category on article.category=category.id";
 		$all= $bdd->query($sql);
 		return ($all);
     }

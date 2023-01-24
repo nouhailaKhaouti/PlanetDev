@@ -58,6 +58,6 @@ function updateCategory() {
 
 function deleteCat(id) {
   if (confirm("Are you sure you want to Delete?")) {
-    window.location.href = "./category/controller.php?id=" + id;
+    window.location.href = "../category/controller.php?category_id=" + id;
   }
 } 

@@ -71,34 +71,35 @@ $(document).ready(function () {
       }
       
       function filtrer() {
-        var filtre,ligne, cellule, i, text;
+        var filtre,ligne, cellule, i;
         filtre = document.getElementById("recherche").value.toUpperCase();
         ligne = document.getElementsByName("ligne");
         console.log(ligne.length)
-        for (i = 0; i < ligne.length; i++) {
-            cellule = ligne[i].querySelectorAll(".joke")[0];
+       ligne.forEach((items)=>{
+            cellule=items.textContent;
             console.log(cellule)
-            if (cellule) {
-                text = cellule.innerText;
-                if (text.toUpperCase().indexOf(filtre) > -1) {
+                if (cellule.toUpperCase().indexOf(filtre) > -1) {
                   console.log("remove")
-                    ligne[i].classList.remove("d-none")
+                    items.classList.remove("d-none")
                 } else {
                   console.log("add")
-                    ligne[i].classList.add("d-none")
+                    items.classList.add("d-none")
                 }
+          })
+      }
+
+
+      document.querySelector('#search-input').addEventListener('input',filterTable);
+      
+      function filterTable(){
+        const search=document.querySelector('#search-input');
+        const filter=search.value.toLowerCase();
+        let rows=document.querySelectorAll('tbody tr');
+        rows.forEach((items)=>{
+            let text=items.textContent;
+            if(text.toLowerCase().includes(filter.toLowerCase())){
+                items.style.display='';
+            }else{
+                items.style.display='none';
             }
-        }
-      }
-      
-      function search() {
-      
-        var input_name = document.getElementById("search");
-        if (input_name.classList.contains('d-none')) {
-            console.log("hiii");
-            input_name.classList.remove('d-none');
-            console.log(input_name.style.display);
-        } else {
-            input_name.classList.add('d-none');
-        }
-      }
+        });}

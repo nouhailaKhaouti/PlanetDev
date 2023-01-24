@@ -5,7 +5,7 @@
         <h4 class="modal-title" id="ModalLabel">Update Article</h4>
       </div>
       <div class="modal-body ">
-        <form action="./article/controller.php" method="POST" id="third" class="d-flex justify-content-between pe-5" enctype='multipart/form-data'>
+        <form action="../article/controller.php" method="POST" id="third" class="d-flex flex-column justify-content-between pe-5" enctype='multipart/form-data'>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">title</label>
             <input type="text" class="form-control" id="title" name="title">
@@ -13,26 +13,28 @@
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Content</label>
             <textarea class="form-control" id="content" name="content"></textarea>
-            <script>CKEDITOR.replace('content');</script>
+            <script>
+              CKEDITOR.replace('content');
+            </script>
           </div>
           <div class="mb-3" id="remove">
             <label for="exampleInputEmail1" class="form-label">icon</label>
-            <input type="text" class="form-control" id="icon" name="icon">
+            <input type="file" class="form-control" id="icon" name="icon">
           </div>
+          <div id="hidden"></div>
           <div id="hidden_img"></div>
-          <div id="img"></div>
+          <div id="img" class="text-center"></div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">category</label>
-            <select class="form-select form-select-sm ms-5 cart shadow-sm" name="category" id="category">
+            <select class="form-select form-select-sm cart shadow-sm" name="category" id="category">
               <?php
               option();
               ?>
             </select>
           </div>
-          <div id="patient"><button type="submit" class="btn btn-primary" name="update_artilce">Submit</button></div>
-
+          <div id="patient"><button type="submit" class="btn btn-primary" name="update_article">Submit</button></div>
+        </form>
       </div>
-      </form>
     </div>
   </div>
 </div>

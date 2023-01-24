@@ -2,7 +2,8 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header head text-center">
-                <h4 class="modal-title" id="ModalLabel">Add New Category</h4>            </div>
+                <h4 class="modal-title" id="ModalLabel">Add New Category</h4>
+            </div>
             <div class="modal-body modal_body ">
                 <form action="../category/controller.php" method="POST" id="third" class="d-flex justify-content-between pe-5">
                     <div class="fw-bold">

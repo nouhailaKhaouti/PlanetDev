@@ -28,8 +28,6 @@ include_once("../category/controller.php");
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i class="fas fa-power-off me-2"></i>Logout</a>
             </div>
         </div>
-        <!-- /#sidebar-wrapper -->
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
@@ -50,11 +48,23 @@ include_once("../category/controller.php");
                     </ul>
                 </div>
             </nav>
+            <div class="activity  mt-5 d-flex justify-content-between mb-3">
+                <div class="title">
+                    <i class="uil uil-document-layout-left  fs-3"></i>
+                    <span class="text fs-5 fw-bold ">My Categories</span>
+                </div>
+                <div class="input-group ms-5 w-25">
 
+                    <input type="search" class="form-control rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="search-input" />
+                    <button type="button" class="btn ms-2 rounded  border-0 primary-bg primary-text">search</button>
+                </div>
+                <div class="ms-auto" id="add_category">
+                    <button class="btn mycolor rounded-pill primary-bg primary-text"><i class="uil uil-plus text-white"></i> <a class="text-decoration-none text-white" href="article.php">&emsp; Create an Article</a></button>
+                </div>
+            </div>
             <div class="container-fluid px-4">
                 <?php
                 include_once("../article/view.php");
-
                 ?>
             </div>
         </div>
@@ -75,6 +85,7 @@ include_once("../category/controller.php");
         };
     </script>
     <script src="../asset/script/article.js"></script>
+    <script src="../asset/script/dynamique.js"></script>
 </body>
 
 </html>

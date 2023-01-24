@@ -44,7 +44,7 @@ function option()
 function saveCategory()
 {
     //CODE HERE
-
+    echo "hi";
     //SQL INSERT   
     if (isset($_POST["label"])) {
         $label = $_POST["label"];
@@ -68,7 +68,7 @@ function saveCategory()
 function deleteCategory()
 {
     //CODE HERE
-    $id = $_GET['Category_id'];
+    $id = $_GET['category_id'];
 
     $req = Category::delete($id);
 
@@ -85,7 +85,7 @@ function updateCategory()
 {
     //CODE HERE
     //SQL INSERT   
-    $id = $_POST['Category_id'];
+    $id = $_POST['category_id'];
     if (isset($_POST["label"])) {
         $label = $_POST["label"];
         $Category = new Category($label);

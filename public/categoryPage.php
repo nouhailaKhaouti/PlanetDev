@@ -56,11 +56,11 @@ include_once("../category/controller.php");
                 </div>
                 <div class="input-group ms-5 w-25">
 
-                    <input type="search" class="form-control rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="recherche" onkeyup="filtrer()" />
-                    <button type="button" class="btn btn-secondary  ms-2 rounded  border-0">search</button>
+                    <input type="search" class="form-control rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" id="search-input"/>
+                    <button type="button" class="btn btn-secondary  ms-2 rounded  border-0 primary-bg primary-text">search</button>
                 </div>
                 <div class="ms-auto" id="add_category">
-                    <button class="button btn btn-secondary text-light mycolor rounded-pill" type="submit" onclick="createCategory()"> Add Category</button>
+                    <button class="button btn btn-secondary text-light mycolor rounded-pill primary-bg primary-text" type="submit" onclick="createCategory()"> Add Category</button>
                 </div>
             </div>
             <div class="container-fluid px-4">
@@ -85,6 +85,7 @@ include_once("../category/controller.php");
         };
     </script>
     <script src="../asset/script/category.js"></script>
+    <script src="../asset/script/dynamique.js"></script>
 </body>
 
 </html>
