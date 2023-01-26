@@ -1,29 +1,27 @@
 <?php
 include 'model.php'; 
+include_once '../includes/trim.php';
 
 $info = User::getById();
+$count = User::count(1);
 
 if (isset($_POST['save_User']))        saveUser();
 if (isset($_POST['update_User']))      updateUser();
 
-if(isset($_POST['login']))        logIn();
+if(isset($_POST['logIn']))        logIn();
+
+
+
+
+// ********************************************User**********************************************
+
+
 function logIn(){
     $email = $_POST['email'];
     $password = $_POST['password'];
      User::login($email,$password);
 
 }
-
-
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
-// ********************************************User**********************************************
 
 function saveUser()
 {

@@ -1,4 +1,5 @@
 <?php
+include_once('../config/db.php');
 class Article {
 	//les attributes d'une Article
 	private $id;
@@ -38,7 +39,11 @@ class Article {
 	  public function update($id) {
 		$database = new Dbconnect();
 		$bdd = $database->connect_pdo();
-		$req = $bdd->prepare("UPDATE article SET  content = :content ,title = :title, icon = :icon, updatedOn = :CreatedOn, category =:category  WHERE id =:ID")or die(print_r($bdd-> errorInfo()));
+		// echo "<pre>" ;
+		// 	var_dump($bdd) ;
+		// echo "<pre>" ;
+		// die() ;
+		$req = $bdd->prepare("UPDATE article SET content = :content ,title = :title, icon = :icon, updatedOn = :CreatedOn, category =:category  WHERE id =:ID")or die(print_r($bdd-> errorInfo()));
 		$req->bindParam(':content',$this->content);
 		$req->bindParam(':title',$this->title);
 		$req->bindParam(':icon',$this->icon);
@@ -46,6 +51,7 @@ class Article {
 		$req->bindParam(':CreatedOn',$this->CreatedOn);
 		$req->bindParam(':ID',$id);
 		$ArticleU=$req->execute();
+		print_r($req) ;
       	return ($ArticleU);
       }
 
@@ -78,10 +84,29 @@ class Article {
 		$database = new Dbconnect();
 		$bdd = $database->connect_pdo();
 		$sql="SELECT count(id) as nbre FROM article";
-		$pass = $bdd->query($sql);
-		return ($pass);
+		$pass = $bdd->prepare($sql);
+		$pass->execute();
+		return ($pass->fetchColumn());
+	}
+
+	public static function nbreArticleByCat($cat){
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
+		$sql="SELECT count(id) as nbre FROM article WHERE category=$cat";
+		$pass = $bdd->prepare($sql);
+		$pass->execute();
+		return ($pass->fetchColumn());
+	}
+
+	public static function nbreArticleByMaxCat(){
+		$database = new Dbconnect();
+		$bdd = $database->connect_pdo();
+		$sql="select category.label as label,max(nor) as nbr from 
+		(select category,count(*) as nor from article group by category) category JOIN category ON category.id=category";
+		$pass = $bdd->prepare($sql);
+		$pass->execute();
+		return ($pass->fetch(PDO::FETCH_ASSOC));
 	}
 
 
 }
-?>

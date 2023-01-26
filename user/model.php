@@ -34,7 +34,7 @@ class User
         } else {
             if ($row['password'] == $password) {
                 $_SESSION['id'] = $row['id'];
-                $_SESSION['name']=$row['username'];
+                $_SESSION['name']=$row['userName'];
                 $_SESSION['role'] = $row['role'];
                 header("location:../public/index.php");
             } else {
@@ -112,7 +112,7 @@ class User
 
         $stmt = $db->prepare("SELECT COUNT(role) FROM user WHERE role LIKE '%$role%'");
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetchColumn();
     }
 
 

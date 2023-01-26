@@ -27,8 +27,9 @@
                             <div class="nowrap">
                                 <label for="email"> Email
                                     Address:</label><br />
-                                <input class="form-control input-md m-1 cart shadow-sm" style="background: #fffef5;" type="email" name="email" id="email" placeholder="enter your email address" required>
+                                <input class="form-control rounder-3 input-md m-1 cart shadow-sm" style="background: #fffef5;" type="email" name="email" id="email" placeholder="enter your email address" required>
                             </div>
+                            </br>
                             <div class="nowrap">
                                 <label for="password"> Password:</label><br />
                                 <input class="form-control input-md m-1 cart shadow-sm" style="background: #fffef5;" type="password" name="password" placeholder="enter the choosing password" id="password" required>

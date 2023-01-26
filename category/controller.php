@@ -57,11 +57,11 @@ function saveCategory()
 
         if (!$req) {
             $_SESSION["error"]="error accured while creating this category";
-            header("location:../public/category.php");
+            header("location: ../public/categoryPage.php");
             
         } else {
             $_SESSION["success"]="this category has been created successfuly";
-            header("location:../public/category.php");
+            header("location: ../public/categoryPage.php");
             die();
         }
     }
@@ -77,11 +77,11 @@ function deleteCategory()
 
     if (!$req) {
         $_SESSION["error"]="error accured while deleting this category";
-        header("location:../public/category.php");
+        header("location:../public/categoryPage.php");
         
     } else {
         $_SESSION["success"]="this category has been deleted successfuly";
-        header("location:../public/category.php");
+        header("location:../public/categoryPage.php");
         die();
     }
 }
@@ -99,11 +99,11 @@ function updateCategory()
         print_r($req);
         if ($req) {
             $_SESSION["success"]="this category has been updated successfuly";
-            header("location:../public/category.php");
+            header("location:../public/categoryPage.php");
             die();
         } else {
             $_SESSION["error"]="error accured while updating this category";
-            header("location:../public/category.php");
+            header("location:../public/categoryPage.php");
             die();
         }
     }
